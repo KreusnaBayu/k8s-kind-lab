@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: myapp-config
+data:
+  APP_ENV: "belajar"
+  APP_GREETING: "Halo versi baru"
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+      <head><title>myapp</title></head>
+      <body>
+        <h1>myapp versi 2</h1>
+        <p>Halaman ini datang dari ConfigMap, bukan dari image.</p>
+      </body>
+    </html>
