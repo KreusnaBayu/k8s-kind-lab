@@ -1,0 +1,20 @@
+ >
+I1101 15:07:10.704047       1 controller.go:465] "Syncing nftables rules" logger="nftables-sync" elapsed="159.305068ms"
+I1101 15:07:11.704654       1 controller.go:462] "Syncing nftables rules" logger="nftables-sync"
+I1101 15:07:11.893515       1 controller.go:817] "syncing nftables rules" logger="nftables-sync" error=<
+	conn.Receive: netlink receive: operation not supported
+	netlink receive: no such file or directory
+	netlink receive: no such file or directory
+--
+ >
+I1101 15:07:11.893557       1 controller.go:465] "Syncing nftables rules" logger="nftables-sync" elapsed="188.841532ms"
+I1101 15:07:12.894147       1 controller.go:462] "Syncing nftables rules" logger="nftables-sync"
+I1101 15:07:13.063703       1 controller.go:817] "syncing nftables rules" logger="nftables-sync" error=<
+	conn.Receive: netlink receive: operation not supported
+	netlink receive: no such file or directory
+	netlink receive: no such file or directory
+--
+ >
+I1101 15:07:13.063770       1 controller.go:465] "Syncing nftables rules" logger="nftables-sync" elapsed="169.540471ms"
+I1101 15:07:14.064137       1 controller.go:462] "Syncing nftables rules" logger="nftables-sync"
+I1101 15:07:14.263111       1 controller.go:817] "syncing nftables rules" logger="nftables-sync" error=<
