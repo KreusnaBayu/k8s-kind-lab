@@ -19,6 +19,13 @@ spec:
           image: nginx:1.27
           ports:
             - containerPort: 80
+          resources:
+            requests:
+              cpu: 10m
+              memory: 32Mi
+            limits:
+              cpu: 100m
+              memory: 64Mi
           env:
             - name: APP_ENV
               valueFrom:
