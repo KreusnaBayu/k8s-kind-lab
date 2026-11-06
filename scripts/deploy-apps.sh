@@ -14,7 +14,11 @@ kubectl create secret generic myapp-secret \
   --from-literal=DB_PASSWORD="$DB_PASSWORD" \
   --dry-run=client -o yaml | kubectl apply -f -
 
-for f in configmap-myapp deployment-myapp service-myapp ingress-myapp hpa-myapp rbac-dev-reader netpol-myapp; do
+for f in configmap-myapp deployment-myapp service-myapp ingress-myapp; do
+  kubectl apply -f "$ROOT/apps/myapp/$f.yaml"
+done
+
+for f in hpa-myapp rbac-dev-reader netpol-myapp; do
   kubectl apply -f "$ROOT/manifests/$f.yaml"
 done
 
