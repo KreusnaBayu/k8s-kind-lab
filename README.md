@@ -41,3 +41,10 @@ curl -H "Host: myapp.local" http://localhost:8080
 
 ## Catatan keamanan
 Secret tidak disimpan di repo; dibuat lewat skrip dari variabel lingkungan.
+
+## GitOps dengan ArgoCD
+- `argocd/app-myapp.yaml`: Application yang memantau `apps/myapp/` (automated, prune, selfHeal).
+- Secret dikelola dengan Sealed Secrets: `sealedsecret-myapp.yaml` aman di Git karena terenkripsi.
+- Keterbatasan: kunci privat controller hanya ada di cluster. Kalau cluster dihapus,
+  SealedSecret harus dibuat ulang dengan `kubeseal`.
+- Manifest latihan (`manifests/`) tidak dikelola ArgoCD.
