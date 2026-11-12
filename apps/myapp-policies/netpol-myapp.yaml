@@ -13,6 +13,9 @@ spec:
         - podSelector:
             matchLabels:
               peran: klien
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: ingress-nginx
       ports:
         - protocol: TCP
           port: 80
