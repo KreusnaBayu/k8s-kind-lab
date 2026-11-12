@@ -28,13 +28,13 @@ echo ">> Menunggu semua node Ready"
 kubectl wait --for=condition=Ready node --all --timeout=300s
 
 echo ">> Memasang ingress-nginx"
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.15.1/deploy/static/provider/kind/deploy.yaml
 kubectl patch deployment ingress-nginx-controller -n ingress-nginx --type=merge -p '{"spec":{"template":{"spec":{"nodeSelector":{"ingress-ready":"true"},"tolerations":[{"key":"node-role.kubernetes.io/control-plane","operator":"Equal","effect":"NoSchedule"},{"key":"node-role.kubernetes.io/master","operator":"Equal","effect":"NoSchedule"}]}}}}'
 kubectl wait --namespace ingress-nginx --for=condition=ready pod \
   --selector=app.kubernetes.io/component=controller --timeout=600s
 
 echo ">> Memasang metrics-server"
-kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.9.1/components.yaml
 if ! kubectl get deployment -n kube-system metrics-server \
   -o jsonpath='{.spec.template.spec.containers[0].args}' | grep -q -- '--kubelet-insecure-tls'; then
   kubectl patch -n kube-system deployment metrics-server --type=json \
